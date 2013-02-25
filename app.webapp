@@ -1,0 +1,14 @@
+{
+  "name": "Sign Up",
+  "version" : "0.0.1",
+  "description": "A super simple couchapp for handling sign-ups",
+  "long_description" : "A super simple couchapp for handling sign-ups",
+  "launch_path": "/",
+  "url": "https://github.com/jmarca/signup",
+  "categories": ["web form"],
+  "developer": {
+    "name": "James Marca",
+    "url": "http://github.com/jmarca"
+  },
+  "default_locale": "en"
+}
