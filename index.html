@@ -70,8 +70,10 @@
                 <h1>Sign Up!</h1>
                 <p>Register your interest in fly fishing by filling
                 out the form below.</p>
-                <p><a id="signupbtn" class="btn btn-primary btn-large">Click here &raquo;</a></p>
+    <!-- Button to trigger modal -->
+                <p><a href="#myModal" role="button" class="btn" data-toggle="modal">Click here &raquo;</a></p>
             </div>
+
 
             <!-- Example row of columns -->
             <div class="row">
@@ -90,6 +92,37 @@
 
         </div> <!-- /container -->
 
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Modal header</h3>
+          </div>
+          <div class="modal-body">
+            <form>
+              <legend>Sign up to get more information about SPFF</legend>
+              <label>Your name</label>
+              <input type="text" size="4" maxwidth="8" style="width:4ex;">
+              <input type="text"  maxwidth="80" placeholder="First name">
+              <input type="text"  maxwidth="80" placeholder="Last name">
+              <label>What city do you live in?</label>
+              <input type="text"  maxwidth="80" placeholder="City">
+              <label>Your phone number</label>
+              <input type="tel"  maxwidth="80" placeholder="(213) 555-1212">
+              <label>Your email address</label>
+              <input type="email"  maxwidth="80" placeholder="user@example.com">
+              <label>Your experience with flyfishing</label>
+              <textarea rows="3" style="width: 90%;" placeholder="Your experience with flyfishing"></textarea>
+
+              <button type="submit" class="btn">Submit</button>
+
+            </form>
+            <div class="modal-footer">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+              <button class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
@@ -98,23 +131,3 @@
         <script src="js/main.js"></script>
     </body>
 </html>
- <script>
-      var dialog = require('dialog')
-        , $ = require('component-jquery');
-
-
-  dialog('Modal')
-                .effect('fade')
-                .closable()
-                .modal()
-                .show()
-                .on('hide', function(){
-                  console.log('closed sixth');
-
-                  dialog('Escape')
-                  .effect('fade')
-                  .overlay()
-                  .show()
-                  .on('hide', function(){
-                    console.log('closed seventh');
-                  });
