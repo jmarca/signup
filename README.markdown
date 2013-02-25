@@ -9,4 +9,11 @@ They would like
 * phone,
 * email address, and
 * Your experience in fly fishing
-u
+
+# using html5 boilerplate
+
+# which uses twitter bootstrap
+
+# haven't hooked up saving yet
+
+# can't seem to blank the form on reload yet
