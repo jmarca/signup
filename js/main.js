@@ -30,10 +30,10 @@ jQuery(function() {
     }
     $("#account").couchLogin({
         loggedIn : function(r) {
-            $("#signupbutton").attr("data-toggle","modal")
+            $("#signupbutton").attr("data-toggle","modal").removeAttr("disabled")
         },
         loggedOut : function() {
-            $("#signupbutton").removeAttr("data-toggle")
+            $("#signupbutton").removeAttr("data-toggle").attr("disabled","disabled")
         }
     });
 
@@ -41,6 +41,7 @@ jQuery(function() {
 jQuery("#signupform").couchForm({
     beforeSave : function(doc){
         doc.created_at = new Date()
+        jQuery('#myModal').modal('hide')
         return doc
     }
 });

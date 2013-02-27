@@ -18,8 +18,8 @@
             }
         </style>
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link href="css/curl.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/main.css">
-
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -34,21 +34,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">SCFF</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
+                    <a class="brand" href="#">Southwest Council Federation of Fly Fishers</a>
                 </div>
                 <div id="account" class="pull-right">
-                        <form class="navbar-form">
-                            <input class="span2" type="text" placeholder="Email">
-                            <input class="span2" type="password" placeholder="Password">
-                            <button type="submit" class="btn">Sign in</button>
-                        </form>
                 </div>
             </div>
         </div>
@@ -56,12 +44,12 @@
         <div class="container">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
-                <h1>Sign Up!</h1>
-                <p>Register your interest in fly fishing by filling
-                out the form below.</p>
+            <div class="hero-unit curl">
+                <h1>SWCFFF Sign Up!</h1>
+                <p>Register your interest in SWCFFF by filling
+                out the form below</p>
     <!-- Button to trigger modal -->
-                <p><a href="#myModal" id="signupbutton" "role"="button" class="btn" >Click here &raquo;</a></p>
+                <p><a href="#myModal" disabled="disabled" id="signupbutton" "role"="button" class="btn" >Click here &raquo;</a></p>
             </div>
 
 
@@ -91,11 +79,8 @@
             <form id="signupform">
               <legend>Sign up to get more information about SPFF</legend>
               <label>Your name</label>
-              <input type="text" size="4" maxwidth="8" name="title" style="width:4ex;">
               <input type="text"  maxwidth="80"  name="first" placeholder="First name">
               <input type="text"  maxwidth="80"  name="last" placeholder="Last name">
-              <label>Your nickname (if different from your first name, above)</label>
-              <input type="text"  maxwidth="80"  name="nickname" placeholder="Nickname">
               <label>What city do you live in?</label>
               <input type="text"  maxwidth="80"  name="city" placeholder="City">
               <label>Your phone number</label>
@@ -104,12 +89,10 @@
               <input type="email"  maxwidth="80" name="email" placeholder="user@example.com">
               <label>Your experience with flyfishing</label>
               <textarea rows="3" style="width: 90%;" name="experience" placeholder="Your experience with flyfishing"></textarea>
-              <label>Any message to the club organizers?</label>
-              <input type="text" style="width:100ex; maxwidth="140" name="message" placeholder="Message">
-            <div class="modal-footer">
-              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-              <button type="submit" class="btn btn-primary">Save</button>
-            </div>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
             </form>
           </div>
         </div>
@@ -117,10 +100,7 @@
   <script id="recent-signups" type="text/x-mustache" charset="utf-8">
         <h3>Recent Sign Ups</h3>
         <ul id="signups">
-          {{#signups}}
-            <li> {{nickname}}{{#city}} from {{city}}{{/city}}{{#message}} says {{message}}{{/message}}
-            </li>
-          {{/signups}}
+          {{#signups}} <li> {{name}}{{#city}} from {{city}}{{/city}} </li> {{/signups}}
         </ul>
   </script>
 
