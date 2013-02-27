@@ -18,8 +18,8 @@
             }
         </style>
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link href="css/curl.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/main.css">
-
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -34,31 +34,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li class="nav-header">Nav header</li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li><a href="#">One more separated link</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <form class="navbar-form pull-right">
-                            <input class="span2" type="text" placeholder="Email">
-                            <input class="span2" type="password" placeholder="Password">
-                            <button type="submit" class="btn">Sign in</button>
-                        </form>
-                    </div><!--/.nav-collapse -->
+                    <a class="brand" href="#">Southwest Council Federation of Fly Fishers</a>
+                </div>
+                <div id="account" class="pull-right">
                 </div>
             </div>
         </div>
@@ -66,55 +44,78 @@
         <div class="container">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
-                <h1>Sign Up!</h1>
-                <p>Register your interest in fly fishing by filling
-                out the form below.</p>
-                <p><a id="signupbtn" class="btn btn-primary btn-large">Click here &raquo;</a></p>
+            <div class="hero-unit curl">
+                <h1>SWCFFF Sign Up!</h1>
+                <p>Register your interest in SWCFFF by filling
+                out the form below</p>
+    <!-- Button to trigger modal -->
+                <p><a href="#myModal" disabled="disabled" id="signupbutton" "role"="button" class="btn" >Click here &raquo;</a></p>
             </div>
+
 
             <!-- Example row of columns -->
             <div class="row">
                 <div class="span12">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
+                    <h2>Add your name to this list!</h2>
+                    <div id="content"></div>
                 </div>
             </div>
 
             <hr>
 
             <footer>
-                <p>&copy; SPFF 2013</p>
+                <p>&copy; SWCFFF 2013</p>
             </footer>
 
         </div> <!-- /container -->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="signupmodal">SPFF sign up</h3>
+          </div>
+          <div class="modal-body">
+            <form id="signupform">
+              <legend>Sign up to get more information about SPFF</legend>
+              <label>Your name</label>
+              <input type="text"  maxwidth="80"  name="first" placeholder="First name">
+              <input type="text"  maxwidth="80"  name="last" placeholder="Last name">
+              <label>What city do you live in?</label>
+              <input type="text"  maxwidth="80"  name="city" placeholder="City">
+              <label>Your phone number</label>
+              <input type="tel"  maxwidth="80"   name="tel" placeholder="(213) 555-1212">
+              <label>Your email address</label>
+              <input type="email"  maxwidth="80" name="email" placeholder="user@example.com">
+              <label>Your experience with flyfishing</label>
+              <textarea rows="3" style="width: 90%;" name="experience" placeholder="Your experience with flyfishing"></textarea>
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+  <script id="recent-signups" type="text/x-mustache" charset="utf-8">
+        <h3>Recent Sign Ups</h3>
+        <ul id="signups">
+          {{#signups}} <li> {{name}}{{#city}} from {{city}}{{/city}} </li> {{/signups}}
+        </ul>
+  </script>
+
+        <script src="js/vendor/jquery-1.9.1.min.js"></script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
+  <script src="/_utils/script/sha1.js"></script>
+  <script src="/_utils/script/json2.js"></script>
+  <script src="js/couchapp/jquery.couch.js"></script>
+  <script src="js/couchapp/jquery.mustache.js"></script>
+  <script src="js/couchapp/jquery.couchForm.js"></script>
+  <script src="js/couchapp/jquery.couchLogin.js"></script>
+
         <script src="js/main.js"></script>
+
     </body>
 </html>
- <script>
-      var dialog = require('dialog')
-        , $ = require('component-jquery');
-
-
-  dialog('Modal')
-                .effect('fade')
-                .closable()
-                .modal()
-                .show()
-                .on('hide', function(){
-                  console.log('closed sixth');
-
-                  dialog('Escape')
-                  .effect('fade')
-                  .overlay()
-                  .show()
-                  .on('hide', function(){
-                    console.log('closed seventh');
-                  });
