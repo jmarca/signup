@@ -36,7 +36,6 @@ You can enter names, and it saves them to the db.
 
 * form validation for required fields (a name, and either a phone number or an
   email, otherwise how will we contact you)
-* dismiss the modal dialog on submit
 * feedback that the user actually entered their name, like some sort
   of transient on the list of new names.
 * photos and decorations from the club to run as the app is just
