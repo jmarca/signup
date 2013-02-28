@@ -1,4 +1,5 @@
 // Apache 2.0 J Chris Anderson 2011
+// modified by James Marca, 2013
 jQuery(function() {
     var path = unescape(document.location.pathname).split('/'),
         design = path[3],
