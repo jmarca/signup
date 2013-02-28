@@ -35,4 +35,12 @@
   overflow-y: auto;
 }
 
-
+.logo {
+    border: 0 none;
+    color: transparent;
+    font: 0pt/0 a;
+    height: 196px;
+    text-shadow: none;
+    width: 248px;
+    float:right;
+}

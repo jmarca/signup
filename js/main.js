@@ -38,9 +38,18 @@ jQuery(function() {
     });
 
  });
+
+jQuery('input[name="email"]').change(function(){
+    if($(this).val()){
+        jQuery('input[name="tel"]').removeAttr('required')
+    }else{
+        jQuery('input[name="tel"]').attr('required','required')
+    }
+})
 jQuery("#signupform").couchForm({
     beforeSave : function(doc){
         doc.created_at = new Date()
+        jQuery('input[name="tel"]').attr('required','required')
         jQuery('#myModal').modal('hide')
         return doc
     }
