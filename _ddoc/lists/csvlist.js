@@ -1,4 +1,4 @@
-function csvlist(doc, req) {
+function csvlist(head, req) {
 
     function csv_formatter (header,row){
         var csv_row = header.map(function(key,idx){
@@ -19,7 +19,7 @@ function csvlist(doc, req) {
                           return val
                       })
         send(csv_row.join(','))
-        send('\n');
+        send('\r\n');
 
     }
 
@@ -27,21 +27,25 @@ function csvlist(doc, req) {
     if ('headers' in req.query) {
         header = JSON.parse(unescape(req.query.headers));
     }
-    var row //sep = '\n', headerSent = false, startedOutput = false;
+    var row
+    // set the response header properly for CSV
+    start({"headers":{"Content-Type" : "text/csv; charset=utf-8",
+                      'Content-Disposition': 'attachment; filename=signups.csv',
+                      'Expires': '0',
+                      'Cache-Control': 'must-revalidate, post-check=0, pre-check=0'
+                     }})
+    send('\r\n')
 
-    start({"headers":{"Content-Type" : "text/csv; charset=utf-8"}});
     if(header===undefined){
         // get the headers from the first row
         row = getRow()
         header = Object.keys(row.value)
-        send('"' + header.join('","') + '"\n')
+        send('"' + header.join('","') + '"\r\n')
         csv_formatter(header,row.value)
     }else{
-        send('"' + header.join('","') + '"\n');
+        send('"' + header.join('","') + '"\r\n');
     }
     while (row = getRow()) {
         csv_formatter(header,row.value)
     }
-    send('\n');
-    return null
 }
